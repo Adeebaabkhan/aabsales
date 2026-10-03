@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aab Khan — Sales, Inventory, Slot & Salary (₱200 Full Suite Demo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+:root {
+  --background: #f7f6fc;
+  --foreground: #141024;
+  --card: #ffffff;
+  --card-foreground: #141024;
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-foreground: #ffffff;
+  --primary-glow: rgba(139, 92, 246, 0.16);
+  --secondary: #ede9fe;
+  --secondary-foreground: #3b1d82;
+  --muted: #f1effa;
+  --muted-foreground: #645c7d;
+  --border: #dfd9f2;
+  --input: #d5cef0;
+  --destructive: #dc2626;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --sidebar: #f2effb;
+  --sidebar-border: #dfd9f2;
+  --radius: 12px;
+}
+
+.dark {
+  --background: #080711;
+  --foreground: #f4f2ff;
+  --card: #110e1f;
+  --card-foreground: #f4f2ff;
+  --primary: #8b5cf6;
+  --primary-hover: #9f75ff;
+  --primary-foreground: #ffffff;
+  --primary-glow: rgba(139, 92, 246, 0.18);
+  --secondary: #1b1630;
+  --secondary-foreground: #e4ddff;
+  --muted: #161228;
+  --muted-foreground: #968eb3;
+  --border: #282145;
+  --input: #282145;
+  --destructive: #ef4444;
+  --success: #10b981;
+  --warning: #eab308;
+  --sidebar: #0c0a18;
+  --sidebar-border: #221c3b;
+}
+
+html[data-accent="rose"] {
+  --primary: #db2777;
+  --primary-hover: #be185d;
+  --primary-glow: rgba(236, 72, 153, 0.16);
+}
+html.dark[data-accent="rose"] {
+  --background: #0b0609;
+  --card: #160c12;
+  --primary: #ec4899;
+  --primary-hover: #f472b6;
+  --primary-glow: rgba(236, 72, 153, 0.18);
+  --secondary: #26131f;
+  --secondary-foreground: #fce7f3;
+  --muted: #1d0f18;
+  --muted-foreground: #ad8b9c;
+  --border: #361a2b;
+  --input: #361a2b;
+  --sidebar: #11080d;
+  --sidebar-border: #2d1523;
+}
+
+html[data-accent="gold"] {
+  --primary: #d97706;
+  --primary-hover: #b45309;
+  --primary-glow: rgba(245, 158, 11, 0.16);
+}
+html.dark[data-accent="gold"] {
+  --background: #090806;
+  --card: #14110c;
+  --primary: #f59e0b;
+  --primary-hover: #fbbf24;
+  --primary-glow: rgba(245, 158, 11, 0.18);
+  --secondary: #241e14;
+  --secondary-foreground: #fef3c7;
+  --muted: #1c1710;
+  --muted-foreground: #a89c87;
+  --border: #332a1b;
+  --input: #332a1b;
+  --sidebar: #0f0d09;
+  --sidebar-border: #292115;
+}
+
+html[data-accent="emerald"] {
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-glow: rgba(16, 185, 129, 0.16);
+}
+html.dark[data-accent="emerald"] {
+  --background: #050b09;
+  --card: #0c1713;
+  --primary: #10b981;
+  --primary-hover: #34d399;
+  --primary-glow: rgba(16, 185, 129, 0.18);
+  --secondary: #132620;
+  --secondary-foreground: #d1fae5;
+  --muted: #0f1e19;
+  --muted-foreground: #84a99c;
+  --border: #1d382f;
+  --input: #1d382f;
+  --sidebar: #08110e;
+  --sidebar-border: #172e26;
+}
+
+html[data-accent="maroon"] {
+  --primary: #801b2a;
+  --primary-hover: #681421;
+  --primary-glow: var(--primary-glow);
+}
+html.dark[data-accent="maroon"] {
+  --background: #0a0608;
+  --card: #130b0e;
+  --primary: var(--primary);
+  --primary-hover: #b83246;
+  --primary-glow: var(--primary-glow);
+  --secondary: #211217;
+  --secondary-foreground: #f2dce0;
+  --muted: #1b0f14;
+  --muted-foreground: #9e878e;
+  --border: #2b161d;
+  --input: #2b161d;
+  --sidebar: #0e080a;
+  --sidebar-border: #241218;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Top Demo Switcher Banner */
+.demo-switcher-bar {
+  background: var(--card);
+  color: #f7eff1;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  z-index: 60;
+}
+
+.demo-switcher-left,
+.demo-switcher-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.demo-tier-link {
+  text-decoration: none;
+  color: #c9b3b9;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border); background: var(--secondary);
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.demo-tier-link:hover {
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.demo-tier-link.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+.demo-role-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border); background: var(--secondary);
+  color: #f7eff1;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.demo-role-btn:hover {
+  border-color: var(--primary);
+}
+
+.demo-role-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+/* App Shell */
+.app-shell {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 45px);
+}
+
+.sidebar {
+  width: 240px;
+  background-color: var(--sidebar);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-brand {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--sidebar-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.tier-chip {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nav-item:hover {
+  background-color: var(--secondary);
+  color: var(--foreground);
+}
+
+.nav-item.active {
+  background-color: var(--primary-glow);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--secondary);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Main Content */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.top-header {
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-content {
+  padding: 22px 26px 48px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page-view {
+  display: none;
+}
+
+.page-view.active {
+  display: block;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-top: 2px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.stat-sub {
+  font-size: 10.5px;
+  color: var(--muted-foreground);
+  margin-top: 3px;
+}
+
+/* Panels & Cards */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 900px) {
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.panel-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.item-card-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.item-card-sub {
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+}
+
+.metrics-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.metric-mini-label {
+  font-size: 10px;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+
+.metric-mini-val {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Slot Matrix (Tier 4 Entertainment Profile Slot Tracker) */
+.slot-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.profile-slot-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  font-size: 11.5px;
+}
+
+.profile-slot-label {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slot-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.slot-pill {
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.slot-pill.open {
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--success);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.slot-pill.open:hover {
+  background: var(--success);
+  color: #fff;
+}
+
+.slot-pill.sold {
+  background: var(--primary-glow);
+  color: var(--primary);
+  border-color: var(--primary-glow);
+}
+
+.slot-pill.sold:hover {
+  background: var(--destructive);
+  color: #fff;
+}
+
+/* Tables */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.clean-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.clean-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  border-bottom: 1px solid var(--border);
+}
+
+.clean-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* Controls & Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 13px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.btn-sm {
+  height: 28px;
+  padding: 0 9px;
+  font-size: 11px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.btn-outline:hover {
+  background: var(--secondary);
+  border-color: var(--primary);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.14);
+  color: var(--destructive);
+}
+
+.btn-danger:hover {
+  background: var(--destructive);
+  color: #fff;
+}
+
+.input-control, .select-control {
+  height: 36px;
+  padding: 0 11px;
+  border-radius: 8px;
+  border: 1px solid var(--input);
+  background: var(--card);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 12.5px;
+  outline: none;
+}
+
+.input-control:focus, .select-control:focus {
+  border-color: var(--primary);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.badge-verified {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+.badge-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+}
+
+.badge-primary {
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.badge-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 480px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.form-grid.two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-field label {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--primary);
+  color: var(--foreground);
+  font-size: 12.5px;
+  font-weight: 500;
+  display: none;
+  z-index: 200;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.toast.show {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 820px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Top Demo Switcher Bar -->
+  <div class="demo-switcher-bar">
+    <div class="demo-switcher-left">
+      <a href="index.html" class="demo-tier-link">← All Demos</a>
+      <a href="sales-tracker.html" class="demo-tier-link">1. Sales Only (₱80)</a>
+      <a href="sales-salary.html" class="demo-tier-link">2. Sales + Salary (₱120)</a>
+      <a href="sales-inventory-salary.html" class="demo-tier-link">3. + Inventory (₱160)</a>
+      <a href="sales-inventory-slot-salary.html" class="demo-tier-link active">4. + Profile Slots (₱200)</a>
+    </div>
+    <div class="demo-switcher-right">
+      <span style="color:#9e878e;">Preview Role:</span>
+      <button type="button" id="demoRoleOwner" class="demo-role-btn active" onclick="setDemoRole('owner')">Owner (Aab Khan)</button>
+      <button type="button" id="demoRoleAdmin" class="demo-role-btn" onclick="setDemoRole('admin')">Admin (Sophia)</button>
+      <button type="button" class="demo-role-btn" onclick="setDemoAccent('violet')" title="Royal Violet">💜</button><button type="button" class="demo-role-btn" onclick="setDemoAccent('rose')" title="Rose Pink">🌸</button><button type="button" class="demo-role-btn" onclick="setDemoAccent('gold')" title="Champagne Gold">✨</button><button type="button" class="demo-role-btn" onclick="setDemoAccent('emerald')" title="Emerald">💎</button><button type="button" class="demo-role-btn" onclick="setDemoAccent('maroon')" title="Maroon">🍷</button><button type="button" class="demo-role-btn" onclick="toggleDemoTheme()">Theme ◐</button>
+      <button type="button" class="demo-role-btn" onclick="resetDemoState()">Reset Demo</button>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-script">Aab Khan</span>
+        <span class="tier-chip">₱200 Suite</span>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="dashboard" onclick="switchView('dashboard')">Dashboard</button>
+        <button class="nav-item" data-view="inventory" onclick="switchView('inventory')">Inventory & Slot Tracker</button>
+        <button class="nav-item" data-view="sales" onclick="switchView('sales')">Sales Log</button>
+        <button class="nav-item" data-view="products" onclick="switchView('products')">Products</button>
+        <button class="nav-item" data-view="salary-rules" onclick="switchView('salary-rules')">Salary Rules</button>
+        <button class="nav-item" data-view="salary" onclick="switchView('salary')">Admin Salary</button>
+        <button class="nav-item" data-view="users" onclick="switchView('users')">Manage Team</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-pill">
+          <div class="user-avatar" id="sidebarUserAvatar">A</div>
+          <div>
+            <div style="font-size:12.5px; font-weight:600;" id="sidebarUserName">Aab Khan</div>
+            <div style="font-size:10.5px; color:var(--muted-foreground);" id="sidebarUserRole">Owner</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="top-header">
+        <div style="font-size:13px; font-weight:600;">Aab Khan — Sales, Inventory, Entertainment Profile Slots & Salary (₱200 Package)</div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-outline btn-sm" onclick="switchView('inventory')">Slot Tracker</button>
+          <button class="btn btn-primary btn-sm" onclick="openAddSaleModal()">+ Add Sale</button>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <!-- DASHBOARD -->
+        <section id="view-dashboard" class="page-view active">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Full Suite Dashboard</h1>
+              <p class="page-subtitle">Sales, Admin Salary, Account Inventory, and Shared/Solo Entertainment Profile Slots</p>
+            </div>
+            <div class="header-controls">
+              <button class="btn btn-outline" onclick="switchView('inventory')">Open Profile Slot Tracker →</button>
+              <button class="btn btn-primary" onclick="openAddSaleModal()">+ Add Sale</button>
+            </div>
+          </div>
+
+          <div id="dashboardStatsGrid" class="stats-grid"></div>
+
+          <div id="adminPerformanceSection" class="panel-card">
+            <div class="panel-title"><span>Admin Performance & Auto Salary</span></div>
+            <div id="adminEarningsList" class="cards-grid"></div>
+          </div>
+
+          <div class="charts-grid">
+            <div class="panel-card">
+              <div class="panel-title"><span>Sales by Product</span></div>
+              <div style="height:220px;"><canvas id="salesChart"></canvas></div>
+            </div>
+            <div class="panel-card">
+              <div class="panel-title"><span>Order Status Breakdown</span></div>
+              <div style="height:220px;"><canvas id="revenueChart"></canvas></div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title">
+              <span>Recent Sales (With Profile & Slot Tags)</span>
+              <button class="btn btn-sm btn-outline" onclick="switchView('sales')">View All →</button>
+            </div>
+            <div class="table-responsive">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Seller</th>
+                    <th>Product & Profile Slot</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recentSalesBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- INVENTORY & ENTERTAINMENT SLOT TRACKER -->
+        <section id="view-inventory" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Entertainment Inventory & Profile Slot Tracker</h1>
+              <p class="page-subtitle">Click any green "+ Slot Open" pill to sell a Shared (1/2 or 2/2) or Solo (1/1) profile slot, or click "Shared ⇄ Solo" to switch profile mode</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddAccountModal()">+ Add Streaming Account</button>
+          </div>
+          <div id="accountsList" class="cards-grid"></div>
+        </section>
+
+        <!-- SALES LOG -->
+        <section id="view-sales" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Sales Log</h1>
+              <p class="page-subtitle">All sales with linked account IDs and profile/slot assignments</p>
+            </div>
+            <div class="header-controls">
+              <input type="text" id="searchInput" class="input-control" placeholder="Search buyer, admin, product..." oninput="renderAll()">
+              <button class="btn btn-primary" onclick="openAddSaleModal()">+ Add Sale</button>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="table-responsive">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Seller</th>
+                    <th>Product, Account & Slot</th>
+                    <th>Buyer</th>
+                    <th>Account Email</th>
+                    <th>Qty</th>
+                    <th>Total Sale</th>
+                    <th>Profit</th>
+                    <th>Auto Salary</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="salesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="view-products" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Product Catalog</h1>
+              <p class="page-subtitle">Catalog pricing, unit profit, and admin salary preview</p>
+            </div>
+          </div>
+          <div id="productList" class="cards-grid"></div>
+        </section>
+
+        <!-- SALARY RULES -->
+        <section id="view-salary-rules" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Salary Rules & Calculator</h1>
+              <p class="page-subtitle">Sales – Capital = Profit • Profit × Rate% = Salary</p>
+            </div>
+          </div>
+          <div class="charts-grid">
+            <div class="panel-card">
+              <div class="panel-title"><span>®️ Salary Formula & Sales Brackets</span></div>
+              <div style="padding:12px; background:var(--muted); border-radius:10px; margin-bottom:12px; font-size:12.5px;">
+                <strong>Sales – Capital = Profit</strong><br>
+                <strong style="color:var(--primary);">Profit × Rate% = Salary</strong>
+              </div>
+              <div id="commissionBracketsList"></div>
+            </div>
+            <div class="panel-card">
+              <div class="panel-title"><span>Live Salary Simulator</span></div>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Total Sales (₱)</label>
+                  <input type="number" id="simSalesInput" class="input-control" value="600" oninput="updateSimulator()">
+                </div>
+                <div class="form-field">
+                  <label>Total Capital (₱)</label>
+                  <input type="number" id="simCapInput" class="input-control" value="350" oninput="updateSimulator()">
+                </div>
+              </div>
+              <div class="summary-strip" style="margin-top:14px;">
+                <div><div class="metric-mini-label">Profit</div><div class="metric-mini-val" style="color:var(--success);" id="simProfitVal">₱250.00</div></div>
+                <div><div class="metric-mini-label">Bracket Rate</div><div class="metric-mini-val" id="simRateVal">30%</div></div>
+                <div><div class="metric-mini-label">Admin Salary</div><div class="metric-mini-val" style="color:var(--primary);" id="simSalaryVal">₱75.00</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADMIN SALARY & PAYOUTS -->
+        <section id="view-salary" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Admin Salary & Payouts</h1>
+              <p class="page-subtitle">Auto-computed salaries and payout history</p>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-title"><span>Admin Salary Summary</span></div>
+            <div id="payoutListMain"></div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-title"><span>Payout History</span></div>
+            <div class="table-responsive">
+              <table class="clean-table">
+                <thead>
+                  <tr><th>Date</th><th>Admin</th><th>Amount</th><th>Method</th><th>Reference</th></tr>
+                </thead>
+                <tbody id="payoutHistoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- MANAGE USERS -->
+        <section id="view-users" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Manage Team Profiles</h1>
+              <p class="page-subtitle">Owner and Admin accounts with auto-computed earnings</p>
+            </div>
+          </div>
+          <div id="userList" class="cards-grid"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Sale Modal -->
+  <div id="saleModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Sale (With Slot Tracking)</h3>
+        <button class="modal-close-btn" onclick="closeSaleModal()">✕</button>
+      </div>
+      <form onsubmit="submitAddSale(event)" class="form-grid">
+        <div class="form-field">
+          <label>Product</label>
+          <select id="saleProductSelect" class="select-control" onchange="updateSaleModalPrice()" required></select>
+        </div>
+        <div class="form-grid two-col">
+          <div class="form-field">
+            <label>Tracked Account</label>
+            <select id="saleAccountSelect" class="select-control"></select>
+          </div>
+          <div class="form-field">
+            <label>Profile & Slot Assignment</label>
+            <input type="text" id="saleSlotInfoInput" class="input-control" placeholder="e.g. Profile #2 (Shared 1/2)">
+          </div>
+        </div>
+        <div class="form-grid two-col">
+          <div class="form-field">
+            <label>Quantity</label>
+            <input type="number" id="saleQtyInput" class="input-control" value="1" min="1" required>
+          </div>
+          <div class="form-field">
+            <label>Sell Price (₱)</label>
+            <input type="number" id="salePriceInput" class="input-control" step="0.01" required>
+          </div>
+        </div>
+        <div class="form-grid two-col">
+          <div class="form-field">
+            <label>Buyer Username</label>
+            <input type="text" id="saleBuyerInput" class="input-control" placeholder="@buyer_username" required>
+          </div>
+          <div class="form-field">
+            <label>Account Email</label>
+            <input type="email" id="saleEmailInput" class="input-control" placeholder="account@aabkhan.com" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">+ Save Sale</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Streaming Account Modal -->
+  <div id="accountModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Entertainment Account with Slots</h3>
+        <button class="modal-close-btn" onclick="closeAccountModal()">✕</button>
+      </div>
+      <form onsubmit="submitAddAccount(event)" class="form-grid">
+        <div class="form-grid two-col">
+          <div class="form-field">
+            <label>Account Code / ID</label>
+            <input type="text" id="newAccId" class="input-control" placeholder="e.g. NF-501" required>
+          </div>
+          <div class="form-field">
+            <label>Service</label>
+            <select id="newAccService" class="select-control">
+              <option value="Netflix">Netflix</option>
+              <option value="Disney+">Disney+</option>
+              <option value="YouTube">YouTube</option>
+              <option value="Spotify">Spotify</option>
+              <option value="Canva">Canva</option>
+              <option value="ChatGPT">ChatGPT</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Account Email</label>
+          <input type="email" id="newAccEmail" class="input-control" placeholder="account@aabkhan.com" required>
+        </div>
+        <div class="form-grid two-col">
+          <div class="form-field">
+            <label>Number of Profiles</label>
+            <input type="number" id="newAccProfiles" class="input-control" value="5" min="1" max="10" required>
+          </div>
+          <div class="form-field">
+            <label>Default Profile Slot Mode</label>
+            <select id="newAccMode" class="select-control">
+              <option value="shared">Shared (2 Slots per Profile)</option>
+              <option value="solo">Solo (1 Slot per Profile)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">+ Create Account & Slots</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"><span>✓</span><span id="toastMessage">Saved!</span></div>
+
+  <script>window.DEMO_TIER = 4;</script>
+  <script>
+// Aab Khan Interactive Demo Engine (Supports Tier 1: ₱50, Tier 2: ₱75, Tier 3: ₱100, Tier 4: ₱150)
+const TIER = window.DEMO_TIER || 1;
+const STORAGE_KEY = `aab_khan_demo_v1_tier_${TIER}`;
+
+const DEFAULT_BRACKETS = [
+  { id: 1, minSales: 1, maxSales: 500, rate: 25 },
+  { id: 2, minSales: 501, maxSales: 999, rate: 30 },
+  { id: 3, minSales: 1000, maxSales: 1599, rate: 35 },
+  { id: 4, minSales: 1600, maxSales: null, rate: 40 }
+];
+
+const DEFAULT_USERS = [
+  { id: 'u1', name: 'Aab Khan', username: 'aabkhan', role: 'owner', mode: 'owner', rate: 100 },
+  { id: 'u2', name: 'Sophia', username: 'sophia', role: 'admin', mode: 'bracket', rate: 30 },
+  { id: 'u3', name: 'Liam', username: 'liam', role: 'admin', mode: 'bracket', rate: 25 }
+];
+
+const DEFAULT_PRODUCTS = [
+  { id: 'p1', name: 'Netflix Premium', category: 'Netflix', buyPrice: 200, sellPrice: 280 },
+  { id: 'p2', name: 'Netflix Shared', category: 'Netflix', buyPrice: 60, sellPrice: 100 },
+  { id: 'p3', name: 'Disney+ Shared', category: 'Disney+', buyPrice: 50, sellPrice: 80 },
+  { id: 'p4', name: 'Disney+ Solo 1dev', category: 'Disney+', buyPrice: 120, sellPrice: 180 },
+  { id: 'p5', name: 'YouTube Solo', category: 'YouTube', buyPrice: 100, sellPrice: 150 },
+  { id: 'p6', name: 'Spotify Standard', category: 'Spotify', buyPrice: 60, sellPrice: 100 },
+  { id: 'p7', name: 'Canva Pro Solo', category: 'Canva', buyPrice: 90, sellPrice: 140 },
+  { id: 'p8', name: 'ChatGPT Plus Shared', category: 'ChatGPT', buyPrice: 100, sellPrice: 150 }
+];
+
+function getInitialAccounts() {
+  return [
+    {
+      id: 'NF-101',
+      email: 'nf.prem101@aabkhan.com',
+      service: 'Netflix',
+      status: 'stock',
+      profileMode: 'shared',
+      totalProfiles: 5,
+      profiles: [
+        { num: 1, type: 'shared', slots: [{ sold: true, buyer: '@mia_k' }, { sold: true, buyer: '@jay_r' }] },
+        { num: 2, type: 'shared', slots: [{ sold: true, buyer: '@claire_v' }, { sold: false, buyer: '' }] },
+        { num: 3, type: 'solo',   slots: [{ sold: true, buyer: '@ella_s' }] },
+        { num: 4, type: 'shared', slots: [{ sold: false, buyer: '' }, { sold: false, buyer: '' }] },
+        { num: 5, type: 'shared', slots: [{ sold: false, buyer: '' }, { sold: false, buyer: '' }] }
+      ]
+    },
+    {
+      id: 'DIS-202',
+      email: 'disney.vip202@aabkhan.com',
+      service: 'Disney+',
+      status: 'stock',
+      profileMode: 'shared',
+      totalProfiles: 4,
+      profiles: [
+        { num: 1, type: 'shared', slots: [{ sold: true, buyer: '@noah_p' }, { sold: false, buyer: '' }] },
+        { num: 2, type: 'solo',   slots: [{ sold: true, buyer: '@kyle_m' }] },
+        { num: 3, type: 'shared', slots: [{ sold: false, buyer: '' }, { sold: false, buyer: '' }] },
+        { num: 4, type: 'shared', slots: [{ sold: false, buyer: '' }, { sold: false, buyer: '' }] }
+      ]
+    },
+    {
+      id: 'YT-303',
+      email: 'yt.fam303@aabkhan.com',
+      service: 'YouTube',
+      status: 'sold',
+      profileMode: 'solo',
+      totalProfiles: 5,
+      profiles: [
+        { num: 1, type: 'solo', slots: [{ sold: true, buyer: '@renz_t' }] },
+        { num: 2, type: 'solo', slots: [{ sold: true, buyer: '@bea_l' }] },
+        { num: 3, type: 'solo', slots: [{ sold: true, buyer: '@zack_d' }] },
+        { num: 4, type: 'solo', slots: [{ sold: true, buyer: '@aria_g' }] },
+        { num: 5, type: 'solo', slots: [{ sold: true, buyer: '@leo_c' }] }
+      ]
+    }
+  ];
+}
+
+function getInitialSales() {
+  const today = new Date().toISOString().split('T')[0];
+  return [
+    { id: 's1', date: today, userId: 'u2', userName: 'Sophia', productId: 'p1', productName: 'Netflix Premium', buyer: '@mia_k', email: 'nf.prem101@aabkhan.com', type: 'Solo', warranty: 'FW', qty: 1, buyPrice: 200, price: 280, sold: true, accountId: 'NF-101', slotInfo: 'Profile 3 (Solo)' },
+    { id: 's2', date: today, userId: 'u2', userName: 'Sophia', productId: 'p2', productName: 'Netflix Shared', buyer: '@claire_v', email: 'nf.prem101@aabkhan.com', type: 'Shared', warranty: 'FW', qty: 2, buyPrice: 60, price: 100, sold: true, accountId: 'NF-101', slotInfo: 'Profile 1 (Shared 2/2)' },
+    { id: 's3', date: today, userId: 'u2', userName: 'Sophia', productId: 'p4', productName: 'Disney+ Solo 1dev', buyer: '@kyle_m', email: 'disney.vip202@aabkhan.com', type: 'Solo', warranty: 'FW', qty: 1, buyPrice: 120, price: 180, sold: true, accountId: 'DIS-202', slotInfo: 'Profile 2 (Solo)' },
+    { id: 's4', date: today, userId: 'u3', userName: 'Liam', productId: 'p5', productName: 'YouTube Solo', buyer: '@renz_t', email: 'yt.fam303@aabkhan.com', type: 'Solo', warranty: 'FW', qty: 2, buyPrice: 100, price: 150, sold: true, accountId: 'YT-303', slotInfo: 'Profile 1-2 (Solo)' },
+    { id: 's5', date: today, userId: 'u1', userName: 'Aab Khan', productId: 'p7', productName: 'Canva Pro Solo', buyer: '@design_hub', email: 'canva.pro@aabkhan.com', type: 'Solo', warranty: 'FW', qty: 1, buyPrice: 90, price: 140, sold: true, accountId: '', slotInfo: '' },
+    { id: 's6', date: today, userId: 'u3', userName: 'Liam', productId: 'p3', productName: 'Disney+ Shared', buyer: '@noah_p', email: 'disney.vip202@aabkhan.com', type: 'Shared', warranty: 'NW', qty: 1, buyPrice: 50, price: 80, sold: false, accountId: 'DIS-202', slotInfo: 'Profile 1 (Shared 1/2)' }
+  ];
+}
+
+let state = {
+  role: 'owner', // 'owner' (Aab Khan) or 'admin' (Sophia)
+  currentUserId: 'u1',
+  users: [],
+  products: [],
+  brackets: [],
+  sales: [],
+  accounts: [],
+  payoutHistory: [
+    { id: 'ph1', date: new Date().toISOString().split('T')[0], admin: 'Liam', amount: 25, method: 'GCash', ref: 'GC-992817' }
+  ]
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      state = { ...state, ...parsed };
+      return;
+    }
+  } catch (e) {}
+  resetDemoState(false);
+}
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function resetDemoState(notify = true) {
+  state.role = 'owner';
+  state.currentUserId = 'u1';
+  state.users = JSON.parse(JSON.stringify(DEFAULT_USERS));
+  state.products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+  state.brackets = JSON.parse(JSON.stringify(DEFAULT_BRACKETS));
+  state.sales = getInitialSales();
+  state.accounts = getInitialAccounts();
+  state.payoutHistory = [
+    { id: 'ph1', date: new Date().toISOString().split('T')[0], admin: 'Liam', amount: 25, method: 'GCash', ref: 'GC-992817' }
+  ];
+  saveState();
+  if (notify) {
+    renderAll();
+    showToast('Demo data reset to defaults!');
+  }
+}
+
+function fmt(val) {
+  return '₱' + (Number(val) || 0).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  const m = document.getElementById('toastMessage');
+  if (!t || !m) return;
+  m.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// =================== SALARY FORMULA ENGINE ===================
+// 25% = 1 to 500 sales
+// 30% = 501 to 999 sales
+// 35% = 1000 to 1599 sales
+// 40% = 1600 and up sales
+// sales - capital = profit
+// profit * rate% = salary
+function getRateForSales(salesAmount) {
+  const amt = Math.max(Number(salesAmount) || 0, 1);
+  for (let i = 0; i < state.brackets.length; i++) {
+    const b = state.brackets[i];
+    const min = Number(b.minSales) || 0;
+    const max = b.maxSales;
+    const nextMin = (i + 1 < state.brackets.length) ? Number(state.brackets[i + 1].minSales) : null;
+    if (max === null || max === undefined || max === '') {
+      if (amt >= min) return Number(b.rate);
+    } else if (amt >= min && (amt <= Number(max) || (nextMin !== null && amt < nextMin))) {
+      return Number(b.rate);
+    }
+  }
+  return 25;
+}
+
+function getUserVerifiedSalesTotal(userId) {
+  return state.sales
+    .filter(s => s.sold && s.userId === userId)
+    .reduce((sum, s) => sum + ((Number(s.price) || 0) * (Number(s.qty) || 1)), 0);
+}
+
+function getSaleSalary(sale) {
+  const profit = Math.max((Number(sale.price) || 0) - (Number(sale.buyPrice) || 0), 0) * (Number(sale.qty) || 1);
+  if (TIER === 1) return profit; // Personal tracker shows 100% personal profit
+  const u = state.users.find(x => x.id === sale.userId);
+  if (u && u.role === 'owner') return profit;
+  const userSales = Math.max(getUserVerifiedSalesTotal(sale.userId), (Number(sale.price) || 0) * (Number(sale.qty) || 1));
+  const rate = (u && u.mode === 'custom') ? Number(u.rate) : getRateForSales(userSales);
+  return profit * (rate / 100);
+}
+
+// =================== ROLE SWITCHER (FOR DEMO) ===================
+function setDemoRole(role) {
+  state.role = role;
+  state.currentUserId = role === 'owner' ? 'u1' : 'u2';
+  saveState();
+  renderAll();
+  showToast(`Switched demo view to ${role === 'owner' ? 'Owner (Aab Khan)' : 'Admin (Sophia)'}`);
+}
+
+function switchView(viewName) {
+  document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+  const target = document.getElementById('view-' + viewName);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === viewName);
+  });
+}
+
+// =================== RENDER ALL VIEWS ===================
+let salesChartInstance = null;
+let statusChartInstance = null;
+
+function renderAll() {
+  const isOwnerView = TIER === 1 || state.role === 'owner';
+  const currentUser = state.users.find(u => u.id === state.currentUserId) || state.users[0];
+
+  // Update sidebar user pill & role buttons
+  const nameEl = document.getElementById('sidebarUserName');
+  const roleEl = document.getElementById('sidebarUserRole');
+  const avatarEl = document.getElementById('sidebarUserAvatar');
+  if (nameEl) nameEl.textContent = TIER === 1 ? 'Aab Khan' : currentUser.name;
+  if (roleEl) roleEl.textContent = TIER === 1 ? 'Personal Tracker' : (isOwnerView ? 'Owner' : 'Admin');
+  if (avatarEl) avatarEl.textContent = (TIER === 1 ? 'A' : currentUser.name[0]);
+
+  const btnOwner = document.getElementById('demoRoleOwner');
+  const btnAdmin = document.getElementById('demoRoleAdmin');
+  if (btnOwner && btnAdmin) {
+    btnOwner.classList.toggle('active', isOwnerView);
+    btnAdmin.classList.toggle('active', !isOwnerView);
+  }
+
+  // Scope sales for current view
+  const scopedSales = isOwnerView
+    ? state.sales
+    : state.sales.filter(s => s.userId === state.currentUserId);
+
+  renderDashboard(scopedSales, isOwnerView);
+  renderSalesTable(scopedSales, isOwnerView);
+  renderProducts(isOwnerView);
+  if (TIER >= 2) {
+    renderSalaryRules(isOwnerView);
+    renderSalaryView(scopedSales, isOwnerView);
+    renderUsersView();
+  }
+  if (TIER >= 3) {
+    renderInventoryView(isOwnerView);
+  }
+}
+
+function renderDashboard(scopedSales, isOwnerView) {
+  let totalSubmitted = 0, officialSales = 0, totalCapital = 0, totalProfit = 0, totalAdminSalary = 0, totalQty = 0, verifiedCount = 0, pendingCount = 0;
+
+  scopedSales.forEach(s => {
+    const rev = (Number(s.price) || 0) * (Number(s.qty) || 1);
+    const cap = (Number(s.buyPrice) || 0) * (Number(s.qty) || 1);
+    const prof = rev - cap;
+    totalSubmitted += rev;
+    totalQty += Number(s.qty) || 1;
+    if (s.sold) {
+      officialSales += rev;
+      totalCapital += cap;
+      totalProfit += prof;
+      verifiedCount++;
+      const u = state.users.find(x => x.id === s.userId);
+      if (u && u.role === 'admin') {
+        totalAdminSalary += getSaleSalary(s);
+      }
+    } else {
+      pendingCount++;
+    }
+  });
+
+  const ownerNet = totalProfit - totalAdminSalary;
+  const statsGrid = document.getElementById('dashboardStatsGrid');
+  if (statsGrid) {
+    let cards = [];
+    if (TIER === 1) {
+      cards = [
+        { label: 'Total Sales', value: fmt(officialSales), sub: `${verifiedCount} completed orders` },
+        { label: 'Net Profit (Sales – Cap)', value: fmt(totalProfit), sub: '100% personal earnings' },
+        { label: 'Total Capital', value: fmt(totalCapital), sub: 'Product cost' },
+        { label: 'Items Sold', value: String(totalQty), sub: `${scopedSales.length} entries` }
+      ];
+    } else if (isOwnerView) {
+      cards = [
+        { label: 'Official Sales', value: fmt(officialSales), sub: `${verifiedCount} verified` },
+        { label: 'Official Profit', value: fmt(totalProfit), sub: 'Sales – Capital' },
+        { label: 'Owner Earnings', value: fmt(ownerNet), sub: 'Net after admin salary' },
+        { label: 'Admin Salary', value: fmt(totalAdminSalary), sub: 'Auto-computed (Profit × Rate%)' },
+        { label: 'Total Capital', value: fmt(totalCapital), sub: 'Product cost' },
+        { label: 'Qty Sold', value: String(totalQty), sub: `${scopedSales.length} transactions` },
+        { label: 'Pending Review', value: String(pendingCount), sub: 'Awaiting verification' },
+        { label: TIER >= 3 ? 'Tracked Accounts' : 'Active Admins', value: TIER >= 3 ? String(state.accounts.length) : String(state.users.filter(u => u.role === 'admin').length), sub: TIER === 4 ? 'With slot tracking' : 'Active' }
+      ];
+    } else {
+      const myRate = getRateForSales(officialSales);
+      const mySalary = scopedSales.filter(s => s.sold).reduce((sum, s) => sum + getSaleSalary(s), 0);
+      cards = [
+        { label: 'My Verified Sales', value: fmt(officialSales), sub: `Bracket Rate: ${myRate}%` },
+        { label: 'Net Profit Generated', value: fmt(totalProfit), sub: 'Sales – Capital' },
+        { label: 'My Salary', value: fmt(mySalary), sub: `${myRate}% of ${fmt(totalProfit)} profit` },
+        { label: 'Qty Sold', value: String(totalQty), sub: `${pendingCount} pending` }
+      ];
+    }
+
+    statsGrid.innerHTML = cards.map(c => `
+      <div class="stat-card">
+        <p class="stat-label">${c.label}</p>
+        <p class="stat-value">${c.value}</p>
+        <p class="stat-sub">${c.sub}</p>
+      </div>
+    `).join('');
+  }
+
+  // Admin Performance Section (Tier 2+)
+  const adminPerf = document.getElementById('adminPerformanceSection');
+  if (adminPerf) {
+    if (TIER >= 2 && isOwnerView) {
+      adminPerf.style.display = 'block';
+      const admins = state.users.filter(u => u.role === 'admin');
+      document.getElementById('adminEarningsList').innerHTML = admins.map(a => {
+        const aSales = state.sales.filter(s => s.userId === a.id && s.sold);
+        const salesSum = aSales.reduce((sum, s) => sum + (s.price * s.qty), 0);
+        const capSum = aSales.reduce((sum, s) => sum + (s.buyPrice * s.qty), 0);
+        const profSum = salesSum - capSum;
+        const rate = getRateForSales(salesSum);
+        const salSum = profSum * (rate / 100);
+        return `
+          <div class="item-card">
+            <div class="item-card-header">
+              <div>
+                <div class="item-card-title">${a.name}</div>
+                <div class="item-card-sub">@${a.username} • ${rate}% Bracket Tier</div>
+              </div>
+              <span class="badge badge-primary">${aSales.length} sales</span>
+            </div>
+            <div class="metrics-mini-grid">
+              <div><div class="metric-mini-label">Sales</div><div class="metric-mini-val">${fmt(salesSum)}</div></div>
+              <div><div class="metric-mini-label">Profit</div><div class="metric-mini-val" style="color:var(--success);">${fmt(profSum)}</div></div>
+              <div><div class="metric-mini-label">Salary (${rate}%)</div><div class="metric-mini-val" style="color:var(--primary);">${fmt(salSum)}</div></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    } else {
+      adminPerf.style.display = 'none';
+    }
+  }
+
+  // Recent Sales Table
+  const recentBody = document.getElementById('recentSalesBody');
+  if (recentBody) {
+    recentBody.innerHTML = scopedSales.slice(0, 5).map(s => `
+      <tr>
+        <td>${s.date}</td>
+        ${TIER >= 2 && isOwnerView ? `<td>${s.userName}</td>` : ''}
+        <td style="font-weight:500;">${s.productName} ${TIER === 4 && s.slotInfo ? `<span class="badge badge-secondary" style="margin-left:4px;">${s.slotInfo}</span>` : ''}</td>
+        <td>${s.qty}</td>
+        <td style="font-weight:600;">${fmt(s.price * s.qty)}</td>
+        <td><span class="badge ${s.sold ? 'badge-verified' : 'badge-pending'}">${s.sold ? 'Verified' : 'Pending'}</span></td>
+      </tr>
+    `).join('');
+  }
+
+  renderCharts(scopedSales);
+}
+
+function renderCharts(scopedSales) {
+  const c1 = document.getElementById('salesChart');
+  const c2 = document.getElementById('revenueChart');
+  if (!c1 || !c2 || typeof Chart === 'undefined') return;
+
+  if (salesChartInstance) salesChartInstance.destroy();
+  if (statusChartInstance) statusChartInstance.destroy();
+
+  const byProduct = {};
+  scopedSales.forEach(s => {
+    byProduct[s.productName] = (byProduct[s.productName] || 0) + (s.price * s.qty);
+  });
+
+  salesChartInstance = new Chart(c1.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(byProduct),
+      datasets: [{
+        label: 'Sales (₱)',
+        data: Object.values(byProduct),
+        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#8b5cf6',
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  const soldCount = scopedSales.filter(s => s.sold).length;
+  const pendingCount = scopedSales.filter(s => !s.sold).length;
+  statusChartInstance = new Chart(c2.getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Verified / Sold', 'Pending'],
+      datasets: [{
+        data: [soldCount || 1, pendingCount],
+        backgroundColor: [getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#8b5cf6', '#eab308'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '65%'
+    }
+  });
+}
+
+// =================== SALES LOG TABLE ===================
+function renderSalesTable(scopedSales, isOwnerView) {
+  const tbody = document.getElementById('salesTableBody');
+  if (!tbody) return;
+  const q = (document.getElementById('searchInput')?.value || '').toLowerCase();
+  const filtered = scopedSales.filter(s =>
+    s.productName.toLowerCase().includes(q) ||
+    s.buyer.toLowerCase().includes(q) ||
+    s.email.toLowerCase().includes(q) ||
+    (s.userName || '').toLowerCase().includes(q)
+  );
+
+  tbody.innerHTML = filtered.map(s => {
+    const total = s.price * s.qty;
+    const profit = (s.price - s.buyPrice) * s.qty;
+    const salary = getSaleSalary(s);
+    return `
+      <tr>
+        <td>${s.date}</td>
+        ${TIER >= 2 ? `<td>${s.userName}</td>` : ''}
+        <td style="font-weight:500;">
+          ${s.productName}
+          ${TIER >= 3 && s.accountId ? `<span class="badge badge-secondary">${s.accountId}</span>` : ''}
+          ${TIER === 4 && s.slotInfo ? `<div style="font-size:10.5px; color:var(--muted-foreground);">${s.slotInfo}</div>` : ''}
+        </td>
+        <td>${s.buyer}</td>
+        <td>${s.email}</td>
+        <td>${s.qty}</td>
+        <td style="font-weight:600;">${fmt(total)}</td>
+        <td style="color:var(--success);">${fmt(profit)}</td>
+        ${TIER >= 2 ? `<td style="color:var(--primary); font-weight:600;">${fmt(salary)}</td>` : ''}
+        <td>
+          <button type="button" onclick="toggleSaleSold('${s.id}')" style="background:none; border:none; cursor:pointer;">
+            <span class="badge ${s.sold ? 'badge-verified' : 'badge-pending'}">${s.sold ? 'Verified' : 'Pending'}</span>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-sm btn-danger" onclick="deleteSale('${s.id}')">✕</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function toggleSaleSold(id) {
+  const s = state.sales.find(x => x.id === id);
+  if (!s) return;
+  s.sold = !s.sold;
+  saveState();
+  renderAll();
+  showToast(`Sale marked as ${s.sold ? 'Verified' : 'Pending'}`);
+}
+
+function deleteSale(id) {
+  state.sales = state.sales.filter(x => x.id !== id);
+  saveState();
+  renderAll();
+  showToast('Sale deleted');
+}
+
+// =================== ADD SALE MODAL ===================
+function openAddSaleModal(prefillAccountId = '', prefillSlotInfo = '', prefillService = '') {
+  const prodSel = document.getElementById('saleProductSelect');
+  if (prodSel) {
+    prodSel.innerHTML = state.products.map(p => `<option value="${p.id}">${p.name} — ${fmt(p.sellPrice)}</option>`).join('');
+    if (prefillService) {
+      const match = state.products.find(p => p.category.toLowerCase().includes(prefillService.toLowerCase()));
+      if (match) prodSel.value = match.id;
+    }
+  }
+  const accSel = document.getElementById('saleAccountSelect');
+  if (accSel) {
+    accSel.innerHTML = `<option value="">-- Direct Sale / No Account --</option>` +
+      state.accounts.map(a => `<option value="${a.id}">${a.id} (${a.email})</option>`).join('');
+    accSel.value = prefillAccountId || '';
+  }
+  const slotInput = document.getElementById('saleSlotInfoInput');
+  if (slotInput) slotInput.value = prefillSlotInfo || '';
+
+  updateSaleModalPrice();
+  document.getElementById('saleModal').classList.add('show');
+}
+
+function closeSaleModal() {
+  document.getElementById('saleModal').classList.remove('show');
+}
+
+function updateSaleModalPrice() {
+  const prodId = document.getElementById('saleProductSelect')?.value;
+  const prod = state.products.find(p => p.id === prodId) || state.products[0];
+  if (!prod) return;
+  const priceInput = document.getElementById('salePriceInput');
+  const buyInput = document.getElementById('saleBuyInput');
+  if (priceInput && !priceInput.dataset.touched) priceInput.value = prod.sellPrice;
+  if (buyInput && !buyInput.dataset.touched) buyInput.value = prod.buyPrice;
+}
+
+function submitAddSale(e) {
+  e.preventDefault();
+  const prodId = document.getElementById('saleProductSelect').value;
+  const prod = state.products.find(p => p.id === prodId) || state.products[0];
+  const qty = parseInt(document.getElementById('saleQtyInput').value) || 1;
+  const price = parseFloat(document.getElementById('salePriceInput').value) || prod.sellPrice;
+  const buyPrice = parseFloat(document.getElementById('saleBuyInput')?.value) || prod.buyPrice;
+  const buyer = document.getElementById('saleBuyerInput').value.trim() || '@buyer';
+  const email = document.getElementById('saleEmailInput').value.trim() || 'account@aabkhan.com';
+  const accountId = document.getElementById('saleAccountSelect')?.value || '';
+  const slotInfo = document.getElementById('saleSlotInfoInput')?.value || '';
+
+  const currentUser = state.users.find(u => u.id === state.currentUserId) || state.users[0];
+
+  state.sales.unshift({
+    id: 's' + Date.now(),
+    date: new Date().toISOString().split('T')[0],
+    userId: TIER === 1 ? 'u1' : currentUser.id,
+    userName: TIER === 1 ? 'Aab Khan' : currentUser.name,
+    productId: prod.id,
+    productName: prod.name,
+    buyer,
+    email,
+    type: slotInfo.includes('Shared') ? 'Shared' : 'Solo',
+    warranty: 'FW',
+    qty,
+    buyPrice,
+    price,
+    sold: true,
+    accountId,
+    slotInfo
+  });
+
+  // If Tier 3 and linked to an inventory account, mark account as sold
+  if (TIER === 3 && accountId) {
+    const acc = state.accounts.find(a => a.id === accountId);
+    if (acc) acc.status = 'sold';
+  }
+
+  saveState();
+  closeSaleModal();
+  e.target.reset();
+  renderAll();
+  showToast('Sale added!');
+}
+
+// =================== PRODUCTS VIEW ===================
+function renderProducts(isOwnerView) {
+  const container = document.getElementById('productList');
+  if (!container) return;
+  container.innerHTML = state.products.map(p => {
+    const profit = p.sellPrice - p.buyPrice;
+    const baseSalary = profit * 0.25;
+    return `
+      <div class="item-card">
+        <div class="item-card-header">
+          <div>
+            <div class="item-card-title">${p.name}</div>
+            <div class="item-card-sub">${p.category}</div>
+          </div>
+          <span class="badge badge-primary">${fmt(profit)} Profit</span>
+        </div>
+        <div class="metrics-mini-grid">
+          <div><div class="metric-mini-label">Sell Price</div><div class="metric-mini-val">${fmt(p.sellPrice)}</div></div>
+          <div><div class="metric-mini-label">Capital</div><div class="metric-mini-val">${fmt(p.buyPrice)}</div></div>
+          <div><div class="metric-mini-label">Profit</div><div class="metric-mini-val" style="color:var(--success);">${fmt(profit)}</div></div>
+          ${TIER >= 2 ? `<div><div class="metric-mini-label">25% Salary</div><div class="metric-mini-val" style="color:var(--primary);">${fmt(baseSalary)}</div></div>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// =================== SALARY RULES & SIMULATOR (TIER 2+) ===================
+function renderSalaryRules(isOwnerView) {
+  const list = document.getElementById('commissionBracketsList');
+  if (!list) return;
+  list.innerHTML = state.brackets.map(b => `
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--muted); border-radius:10px; margin-bottom:8px;">
+      <span style="font-weight:600;">🫙 ${b.rate}% = ${fmt(b.minSales)} ${b.maxSales ? `to ${fmt(b.maxSales)} sales` : 'and up sales'}</span>
+      <span class="badge badge-primary">${b.rate}% of Profit</span>
+    </div>
+  `).join('');
+  updateSimulator();
+}
+
+function updateSimulator() {
+  const salesVal = parseFloat(document.getElementById('simSalesInput')?.value) || 0;
+  const capVal = parseFloat(document.getElementById('simCapInput')?.value) || 0;
+  const profit = Math.max(salesVal - capVal, 0);
+  const rate = getRateForSales(salesVal);
+  const salary = profit * (rate / 100);
+  if (document.getElementById('simProfitVal')) document.getElementById('simProfitVal').textContent = fmt(profit);
+  if (document.getElementById('simRateVal')) document.getElementById('simRateVal').textContent = rate + '%';
+  if (document.getElementById('simSalaryVal')) document.getElementById('simSalaryVal').textContent = fmt(salary);
+}
+
+// =================== ADMIN SALARY & PAYOUTS (TIER 2+) ===================
+function renderSalaryView(scopedSales, isOwnerView) {
+  const container = document.getElementById('payoutListMain');
+  if (!container) return;
+  const admins = state.users.filter(u => u.role === 'admin');
+  container.innerHTML = admins.map(a => {
+    const aSales = state.sales.filter(s => s.userId === a.id && s.sold);
+    const salesSum = aSales.reduce((sum, s) => sum + (s.price * s.qty), 0);
+    const capSum = aSales.reduce((sum, s) => sum + (s.buyPrice * s.qty), 0);
+    const profSum = salesSum - capSum;
+    const rate = getRateForSales(salesSum);
+    const salary = profSum * (rate / 100);
+    return `
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--muted); border-radius:10px; margin-bottom:8px;">
+        <div>
+          <div style="font-weight:600;">${a.name} (@${a.username})</div>
+          <div style="font-size:11.5px; color:var(--muted-foreground);">
+            Sales: ${fmt(salesSum)} – Capital: ${fmt(capSum)} = Profit: <strong>${fmt(profSum)}</strong> × ${rate}%
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:15px; font-weight:700; color:var(--primary);">${fmt(salary)}</span>
+          ${isOwnerView ? `<button class="btn btn-sm btn-primary" onclick="payAdminDemo('${a.name}', ${salary})">Mark Paid</button>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const histBody = document.getElementById('payoutHistoryBody');
+  if (histBody) {
+    histBody.innerHTML = state.payoutHistory.map(h => `
+      <tr>
+        <td>${h.date}</td>
+        <td>${h.admin}</td>
+        <td style="color:var(--success); font-weight:600;">${fmt(h.amount)}</td>
+        <td>${h.method}</td>
+        <td>${h.ref}</td>
+      </tr>
+    `).join('');
+  }
+}
+
+function payAdminDemo(adminName, amount) {
+  state.payoutHistory.unshift({
+    id: 'ph' + Date.now(),
+    date: new Date().toISOString().split('T')[0],
+    admin: adminName,
+    amount,
+    method: 'GCash',
+    ref: 'GC-' + Math.floor(100000 + Math.random() * 900000)
+  });
+  saveState();
+  renderAll();
+  showToast(`Recorded ${fmt(amount)} payout for ${adminName}!`);
+}
+
+// =================== MANAGE USERS (TIER 2+) ===================
+function renderUsersView() {
+  const container = document.getElementById('userList');
+  if (!container) return;
+  container.innerHTML = state.users.map(u => {
+    const uSales = state.sales.filter(s => s.userId === u.id && s.sold);
+    const salesSum = uSales.reduce((sum, s) => sum + (s.price * s.qty), 0);
+    const capSum = uSales.reduce((sum, s) => sum + (s.buyPrice * s.qty), 0);
+    const profSum = salesSum - capSum;
+    const rate = u.role === 'owner' ? 100 : getRateForSales(salesSum);
+    const salSum = u.role === 'owner' ? profSum : profSum * (rate / 100);
+    return `
+      <div class="item-card">
+        <div class="item-card-header">
+          <div>
+            <div class="item-card-title">${u.name} <span class="badge badge-secondary">${u.role.toUpperCase()}</span></div>
+            <div class="item-card-sub">@${u.username} • ${u.role === 'owner' ? '100% Net Profit' : `${rate}% Bracket Rate`}</div>
+          </div>
+        </div>
+        <div class="metrics-mini-grid">
+          <div><div class="metric-mini-label">Sales</div><div class="metric-mini-val">${fmt(salesSum)}</div></div>
+          <div><div class="metric-mini-label">Profit</div><div class="metric-mini-val" style="color:var(--success);">${fmt(profSum)}</div></div>
+          <div><div class="metric-mini-label">${u.role === 'owner' ? 'Earnings' : 'Salary'}</div><div class="metric-mini-val" style="color:var(--primary);">${fmt(salSum)}</div></div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// =================== INVENTORY & SLOT TRACKER (TIER 3 & TIER 4) ===================
+function renderInventoryView(isOwnerView) {
+  const container = document.getElementById('accountsList');
+  if (!container) return;
+
+  container.innerHTML = state.accounts.map(acc => {
+    const linkedSales = state.sales.filter(s => s.accountId === acc.id);
+    const revenue = linkedSales.reduce((sum, s) => sum + (s.price * s.qty), 0);
+
+    // Count slots for Tier 4
+    let totalSlots = 0, soldSlots = 0;
+    (acc.profiles || []).forEach(p => {
+      (p.slots || []).forEach(sl => {
+        totalSlots++;
+        if (sl.sold) soldSlots++;
+      });
+    });
+
+    const isSoldOut = TIER === 4 ? (soldSlots >= totalSlots) : (acc.status === 'sold');
+
+    return `
+      <div class="item-card">
+        <div class="item-card-header">
+          <div>
+            <div class="item-card-title">${acc.id} — ${acc.service}</div>
+            <div class="item-card-sub">${acc.email}</div>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <span class="badge ${isSoldOut ? 'badge-pending' : 'badge-verified'}">
+              ${TIER === 4 ? `${soldSlots}/${totalSlots} Slots Sold` : (isSoldOut ? 'Sold' : 'In Stock')}
+            </span>
+            ${TIER === 3 ? `<button class="btn btn-sm btn-outline" onclick="toggleAccountStatus('${acc.id}')">Toggle Sold</button>` : ''}
+          </div>
+        </div>
+
+        ${TIER === 4 ? `
+          <div class="slot-grid">
+            ${(acc.profiles || []).map((prof, pIdx) => `
+              <div class="profile-slot-row">
+                <div class="profile-slot-label">
+                  <span>Profile #${prof.num}</span>
+                  <button type="button" class="badge badge-secondary" style="border:none; cursor:pointer;" title="Click to switch Solo / Shared" onclick="toggleProfileSharedMode('${acc.id}', ${pIdx})">
+                    ${prof.type === 'shared' ? 'Shared (2 Slots)' : 'Solo (1 Slot)'} ⇄
+                  </button>
+                </div>
+                <div class="slot-pills">
+                  ${(prof.slots || []).map((slot, sIdx) => slot.sold ? `
+                    <button type="button" class="slot-pill sold" title="Click to clear slot" onclick="toggleSlotState('${acc.id}', ${pIdx}, ${sIdx})">
+                      Slot ${sIdx + 1}: ${slot.buyer || 'Sold'} ✕
+                    </button>
+                  ` : `
+                    <button type="button" class="slot-pill open" title="Click to sell this slot" onclick="sellAccountSlot('${acc.id}', ${pIdx}, ${sIdx})">
+                      + Slot ${sIdx + 1} Open
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
+
+        <div class="metrics-mini-grid">
+          <div><div class="metric-mini-label">Service</div><div class="metric-mini-val">${acc.service}</div></div>
+          <div><div class="metric-mini-label">Orders Linked</div><div class="metric-mini-val">${linkedSales.length}</div></div>
+          <div><div class="metric-mini-label">Account Revenue</div><div class="metric-mini-val" style="color:var(--primary);">${fmt(revenue)}</div></div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleAccountStatus(accId) {
+  const acc = state.accounts.find(a => a.id === accId);
+  if (!acc) return;
+  acc.status = acc.status === 'sold' ? 'stock' : 'sold';
+  saveState();
+  renderAll();
+  showToast(`${acc.id} marked as ${acc.status === 'sold' ? 'Sold' : 'In Stock'}`);
+}
+
+function toggleProfileSharedMode(accId, profileIdx) {
+  const acc = state.accounts.find(a => a.id === accId);
+  if (!acc || !acc.profiles[profileIdx]) return;
+  const prof = acc.profiles[profileIdx];
+  if (prof.type === 'solo') {
+    prof.type = 'shared';
+    if (prof.slots.length < 2) prof.slots.push({ sold: false, buyer: '' });
+  } else {
+    prof.type = 'solo';
+    prof.slots = [prof.slots[0] || { sold: false, buyer: '' }];
+  }
+  saveState();
+  renderAll();
+  showToast(`Profile #${prof.num} switched to ${prof.type.toUpperCase()} mode`);
+}
+
+function toggleSlotState(accId, pIdx, sIdx) {
+  const acc = state.accounts.find(a => a.id === accId);
+  if (!acc) return;
+  const slot = acc.profiles[pIdx].slots[sIdx];
+  slot.sold = false;
+  slot.buyer = '';
+  saveState();
+  renderAll();
+  showToast(`Cleared Profile #${acc.profiles[pIdx].num} Slot ${sIdx + 1}`);
+}
+
+function sellAccountSlot(accId, pIdx, sIdx) {
+  const acc = state.accounts.find(a => a.id === accId);
+  if (!acc) return;
+  const prof = acc.profiles[pIdx];
+  const buyer = prompt(`Enter buyer username for ${acc.id} • Profile #${prof.num} (${prof.type.toUpperCase()} Slot ${sIdx + 1}):`, '@buyer_' + Math.floor(10 + Math.random() * 89));
+  if (!buyer) return;
+  prof.slots[sIdx].sold = true;
+  prof.slots[sIdx].buyer = buyer;
+
+  // Also log a sale automatically!
+  const matchProd = state.products.find(p => p.category.toLowerCase().includes(acc.service.toLowerCase()) && (prof.type === 'shared' ? p.name.includes('Shared') : !p.name.includes('Shared'))) || state.products[0];
+  const currentUser = state.users.find(u => u.id === state.currentUserId) || state.users[0];
+  state.sales.unshift({
+    id: 's' + Date.now(),
+    date: new Date().toISOString().split('T')[0],
+    userId: currentUser.id,
+    userName: currentUser.name,
+    productId: matchProd.id,
+    productName: matchProd.name,
+    buyer,
+    email: acc.email,
+    type: prof.type === 'shared' ? 'Shared' : 'Solo',
+    warranty: 'FW',
+    qty: 1,
+    buyPrice: matchProd.buyPrice,
+    price: matchProd.sellPrice,
+    sold: true,
+    accountId: acc.id,
+    slotInfo: `Profile #${prof.num} (${prof.type === 'shared' ? `Shared Slot ${sIdx + 1}/2` : 'Solo'})`
+  });
+
+  saveState();
+  renderAll();
+  showToast(`Sold Profile #${prof.num} Slot ${sIdx + 1} to ${buyer}!`);
+}
+
+function openAddAccountModal() {
+  document.getElementById('accountModal').classList.add('show');
+}
+function closeAccountModal() {
+  document.getElementById('accountModal').classList.remove('show');
+}
+
+function submitAddAccount(e) {
+  e.preventDefault();
+  const id = document.getElementById('newAccId').value.trim() || ('ACC-' + Math.floor(100 + Math.random() * 899));
+  const email = document.getElementById('newAccEmail').value.trim() || 'new@aabkhan.com';
+  const service = document.getElementById('newAccService').value;
+  const totalProfiles = parseInt(document.getElementById('newAccProfiles')?.value) || 5;
+  const mode = document.getElementById('newAccMode')?.value || 'shared';
+
+  const profiles = [];
+  for (let i = 1; i <= totalProfiles; i++) {
+    profiles.push({
+      num: i,
+      type: mode,
+      slots: mode === 'shared' ? [{ sold: false, buyer: '' }, { sold: false, buyer: '' }] : [{ sold: false, buyer: '' }]
+    });
+  }
+
+  state.accounts.unshift({
+    id,
+    email,
+    service,
+    status: 'stock',
+    profileMode: mode,
+    totalProfiles,
+    profiles
+  });
+  saveState();
+  closeAccountModal();
+  e.target.reset();
+  renderAll();
+  showToast(`Added account ${id}!`);
+}
+
+// Theme & Accent toggle
+function setDemoAccent(accent) {
+  document.documentElement.setAttribute('data-accent', accent);
+  localStorage.setItem('aab_demo_accent', accent);
+  renderCharts();
+}
+
+function toggleDemoTheme() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('aab_demo_theme', isDark ? 'dark' : 'light');
+  renderCharts();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('aab_demo_theme') || 'dark';
+  document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+  const savedAccent = localStorage.getItem('aab_demo_accent') || 'violet';
+  document.documentElement.setAttribute('data-accent', savedAccent);
+  loadState();
+  renderAll();
+});
+
+</script>
+</body>
+</html>
+
+

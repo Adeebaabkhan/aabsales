@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aab Khan — Tracker Showcase & Live Demos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f7f6fc;
+      --foreground: #141024;
+      --card: #ffffff;
+      --card-foreground: #141024;
+      --primary: #7c3aed;
+      --primary-hover: #6d28d9;
+      --primary-foreground: #ffffff;
+      --primary-glow: rgba(139, 92, 246, 0.16);
+      --secondary: #ede9fe;
+      --secondary-foreground: #3b1d82;
+      --muted: #f1effa;
+      --muted-foreground: #645c7d;
+      --border: #dfd9f2;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --radius: 14px;
+    }
+
+    .dark {
+      --background: #080711;
+      --foreground: #f4f2ff;
+      --card: #110e1f;
+      --card-foreground: #f4f2ff;
+      --primary: #8b5cf6;
+      --primary-hover: #9f75ff;
+      --primary-foreground: #ffffff;
+      --primary-glow: rgba(139, 92, 246, 0.18);
+      --secondary: #1b1630;
+      --secondary-foreground: #e4ddff;
+      --muted: #161228;
+      --muted-foreground: #968eb3;
+      --border: #282145;
+      --success: #10b981;
+      --warning: #eab308;
+    }
+
+    /* Color Preset: Rose Quartz */
+    html[data-accent="rose"] {
+      --primary: #db2777;
+      --primary-hover: #be185d;
+      --primary-glow: rgba(236, 72, 153, 0.16);
+    }
+    html.dark[data-accent="rose"] {
+      --background: #0b0609;
+      --card: #160c12;
+      --primary: #ec4899;
+      --primary-hover: #f472b6;
+      --primary-glow: rgba(236, 72, 153, 0.18);
+      --secondary: #26131f;
+      --secondary-foreground: #fce7f3;
+      --muted: #1d0f18;
+      --muted-foreground: #ad8b9c;
+      --border: #361a2b;
+    }
+
+    /* Color Preset: Champagne Gold */
+    html[data-accent="gold"] {
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --primary-glow: rgba(245, 158, 11, 0.16);
+    }
+    html.dark[data-accent="gold"] {
+      --background: #090806;
+      --card: #14110c;
+      --primary: #f59e0b;
+      --primary-hover: #fbbf24;
+      --primary-glow: rgba(245, 158, 11, 0.18);
+      --secondary: #241e14;
+      --secondary-foreground: #fef3c7;
+      --muted: #1c1710;
+      --muted-foreground: #a89c87;
+      --border: #332a1b;
+    }
+
+    /* Color Preset: Emerald Luxe */
+    html[data-accent="emerald"] {
+      --primary: #059669;
+      --primary-hover: #047857;
+      --primary-glow: rgba(16, 185, 129, 0.16);
+    }
+    html.dark[data-accent="emerald"] {
+      --background: #050b09;
+      --card: #0c1713;
+      --primary: #10b981;
+      --primary-hover: #34d399;
+      --primary-glow: rgba(16, 185, 129, 0.18);
+      --secondary: #132620;
+      --secondary-foreground: #d1fae5;
+      --muted: #0f1e19;
+      --muted-foreground: #84a99c;
+      --border: #1d382f;
+    }
+
+    /* Color Preset: Velvet Maroon */
+    html[data-accent="maroon"] {
+      --primary: #801b2a;
+      --primary-hover: #681421;
+      --primary-glow: rgba(158, 42, 59, 0.16);
+    }
+    html.dark[data-accent="maroon"] {
+      --background: #0a0608;
+      --card: #130b0e;
+      --primary: #9e2a3b;
+      --primary-hover: #b83246;
+      --primary-glow: rgba(158, 42, 59, 0.18);
+      --secondary: #211217;
+      --secondary-foreground: #f2dce0;
+      --muted: #1b0f14;
+      --muted-foreground: #9e878e;
+      --border: #2b161d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Top Header */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--card);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--primary-glow);
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .palette-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted-foreground);
+    }
+
+    .swatch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--foreground);
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .swatch-btn:hover {
+      background: var(--card);
+    }
+
+    .swatch-btn.active {
+      background: var(--card);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .swatch-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--secondary);
+      color: var(--foreground);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 26px 20px 12px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .hero-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--foreground);
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+
+    .hero-title {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--muted-foreground);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Quick 1/1 Switcher Pills */
+    .quick-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 14px auto 4px;
+      padding: 0 16px;
+    }
+
+    .quick-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--foreground);
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: all 0.15s ease;
+    }
+
+    .quick-pill:hover {
+      border-color: var(--primary);
+      background: var(--primary-glow);
+    }
+
+    .quick-pill strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Cards Container */
+    .plans-container {
+      max-width: 1240px;
+      width: 100%;
+      margin: 14px auto 36px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1100px) {
+      .plans-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .plans-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-script {
+        font-size: 40px;
+      }
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 14px 34px -12px var(--primary-glow);
+    }
+
+    .plan-card.featured {
+      border-color: var(--primary);
+      background: linear-gradient(180deg, var(--primary-glow) 0%, var(--card) 42%);
+    }
+
+    .plan-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      margin-bottom: 10px;
+    }
+
+    .plan-card.featured .plan-badge {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .plan-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--foreground);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin: 6px 0 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plan-currency {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .plan-price {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--foreground);
+      line-height: 1;
+    }
+
+    .plan-old-price {
+      font-size: 14px;
+      color: var(--muted-foreground);
+      text-decoration: line-through;
+      margin-left: 6px;
+      font-weight: 500;
+    }
+
+    .plan-save-tag {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.14);
+      color: var(--success);
+    }
+
+    .plan-desc {
+      font-size: 12px;
+      color: var(--muted-foreground);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      min-height: 52px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .feature-list li {
+      font-size: 12px;
+      color: var(--foreground);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+
+    .feature-check {
+      color: var(--primary);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feature-plus {
+      background: var(--primary-glow);
+      color: var(--primary);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 10px;
+      margin-right: 4px;
+    }
+
+    .plan-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn-demo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .btn-demo:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-preview {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      height: 34px;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted-foreground);
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-preview:hover {
+      color: var(--foreground);
+      border-color: var(--primary);
+      background: var(--secondary);
+    }
+
+    /* Inline Live Preview Section */
+    .preview-section {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+      display: none;
+    }
+
+    .preview-section.active {
+      display: block;
+    }
+
+    .preview-frame-card {
+      background: var(--card);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .preview-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: var(--secondary);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .preview-title {
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .preview-iframe {
+      width: 100%;
+      height: 760px;
+      border: none;
+      background: var(--background);
+    }
+
+    .footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--muted-foreground);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="index.html" class="brand">
+      <span class="brand-logo">Aab Khan</span>
+      <span class="brand-tag">Demo Hub</span>
+    </a>
+    <div class="top-actions">
+      <div class="palette-bar">
+        <span>Color:</span>
+        <button type="button" class="swatch-btn active" data-swatch="violet" onclick="setAccent('violet')"><span class="swatch-dot" style="background:#8b5cf6;"></span>Violet</button>
+        <button type="button" class="swatch-btn" data-swatch="rose" onclick="setAccent('rose')"><span class="swatch-dot" style="background:#ec4899;"></span>Rose</button>
+        <button type="button" class="swatch-btn" data-swatch="gold" onclick="setAccent('gold')"><span class="swatch-dot" style="background:#f59e0b;"></span>Gold</button>
+        <button type="button" class="swatch-btn" data-swatch="emerald" onclick="setAccent('emerald')"><span class="swatch-dot" style="background:#10b981;"></span>Emerald</button>
+        <button type="button" class="swatch-btn" data-swatch="maroon" onclick="setAccent('maroon')"><span class="swatch-dot" style="background:#9e2a3b;"></span>Maroon</button>
+      </div>
+      <button class="icon-btn" id="themeBtn" title="Toggle Dark/Light Mode">
+        <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg id="sunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-script">Aab Khan</div>
+    <h1 class="hero-title">Choose a Tracker System to Demo</h1>
+    <p class="hero-sub">
+      Explore each 1-on-1 interactive demo below. Every version comes pre-loaded with sample data so you can test adding sales, computing salaries, tracking inventory, and managing profile slots.
+    </p>
+
+    <div class="quick-tabs">
+      <a href="sales-tracker.html" class="quick-pill">1. Sales Tracker Only <strong>₱80</strong></a>
+      <a href="sales-salary.html" class="quick-pill">2. Sales + Salary <strong>₱120</strong></a>
+      <a href="sales-inventory-salary.html" class="quick-pill">3. Sales, Inventory & Salary <strong>₱160</strong></a>
+      <a href="sales-inventory-slot-salary.html" class="quick-pill">4. Sales, Inventory, Slot & Salary <strong>₱200</strong></a>
+    </div>
+  </section>
+
+  <main class="plans-container">
+    <!-- TIER 1: 80 -->
+    <div class="plan-card">
+      <div>
+        <span class="plan-badge">Tier 1 • Solo Starter</span>
+        <h2 class="plan-name">Sales Tracker Only</h2>
+        <div class="plan-price-row">
+          <span class="plan-currency">₱</span>
+          <span class="plan-price">80</span>
+          <span class="plan-old-price">₱100</span>
+          <span class="plan-save-tag">STARTER</span>
+        </div>
+        <p class="plan-desc">
+          More on personal tracker — clean, fast personal sales, capital, and net profit tracking for solo sellers.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-check">✓</span><span>Personal Sales, Capital & Net Profit Dashboard</span></li>
+          <li><span class="feature-check">✓</span><span>Daily, Weekly & Monthly Revenue Charts</span></li>
+          <li><span class="feature-check">✓</span><span>Sales Log (Add Sale, Bulk Add & Search)</span></li>
+          <li><span class="feature-check">✓</span><span>Product Catalog (Cost, Sell Price & Profit)</span></li>
+          <li><span class="feature-check">✓</span><span>One-Click CSV Export & Dark/Light Theme</span></li>
+        </ul>
+      </div>
+      <div class="plan-actions">
+        <a href="sales-tracker.html" class="btn-demo">Open Full Demo (₱80) →</a>
+        <button type="button" class="btn-preview" onclick="openInlinePreview('sales-tracker.html', 'Sales Tracker Only — ₱80')">Preview Here Below</button>
+      </div>
+    </div>
+
+    <!-- TIER 2: 120 -->
+    <div class="plan-card">
+      <div>
+        <span class="plan-badge">Tier 2 • Team + Salary ★</span>
+        <h2 class="plan-name">Sales Tracker + Salary Tracker</h2>
+        <div class="plan-price-row">
+          <span class="plan-currency">₱</span>
+          <span class="plan-price">120</span>
+          <span class="plan-old-price">₱150</span>
+          <span class="plan-save-tag">POPULAR</span>
+        </div>
+        <p class="plan-desc">
+          Your sales and admin sales with automatic salary computation based on your commission brackets.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-check">✓</span><span>Everything in <strong>Sales Tracker Only (₱80)</strong></span></li>
+          <li><span class="feature-check">✓</span><span><span class="feature-plus">+ NEW</span>Owner & Admin Profiles + Role Views</span></li>
+          <li><span class="feature-check">✓</span><span><span class="feature-plus">+ NEW</span>Auto Salary Formula (<code>Profit × Rate%</code>)</span></li>
+          <li><span class="feature-check">✓</span><span>Commission Brackets & Salary Simulator</span></li>
+          <li><span class="feature-check">✓</span><span>Admin Performance, Payouts & History</span></li>
+        </ul>
+      </div>
+      <div class="plan-actions">
+        <a href="sales-salary.html" class="btn-demo">Open Full Demo (₱120) →</a>
+        <button type="button" class="btn-preview" onclick="openInlinePreview('sales-salary.html', 'Sales Tracker + Salary Tracker — ₱120')">Preview Here Below</button>
+      </div>
+    </div>
+
+    <!-- TIER 3: 160 -->
+    <div class="plan-card">
+      <div>
+        <span class="plan-badge">Tier 3 • + Inventory</span>
+        <h2 class="plan-name">Sales, Inventory & Salary</h2>
+        <div class="plan-price-row">
+          <span class="plan-currency">₱</span>
+          <span class="plan-price">160</span>
+          <span class="plan-old-price">₱200</span>
+          <span class="plan-save-tag">PRO</span>
+        </div>
+        <p class="plan-desc">
+          Adds full Account Inventory so you can track your in-stock and sold accounts alongside team sales & salary.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-check">✓</span><span>Everything in <strong>Sales + Salary (₱120)</strong></span></li>
+          <li><span class="feature-check">✓</span><span><span class="feature-plus">+ NEW</span>Account Inventory Tracker (In Stock / Sold)</span></li>
+          <li><span class="feature-check">✓</span><span><span class="feature-plus">+ NEW</span>Link Sales to Inventory Accounts</span></li>
+          <li><span class="feature-check">✓</span><span>Auto-Update Sold Account Status</span></li>
+          <li><span class="feature-check">✓</span><span>Per-Account Revenue & Buyer Tracking</span></li>
+        </ul>
+      </div>
+      <div class="plan-actions">
+        <a href="sales-inventory-salary.html" class="btn-demo">Open Full Demo (₱160) →</a>
+        <button type="button" class="btn-preview" onclick="openInlinePreview('sales-inventory-salary.html', 'Sales, Inventory & Salary — ₱160')">Preview Here Below</button>
+      </div>
+    </div>
+
+    <!-- TIER 4: 200 -->
+    <div class="plan-card featured">
+      <div>
+        <span class="plan-badge">Tier 4 • Best Value 🔥</span>
+        <h2 class="plan-name">Sales, Inventory, Slot & Salary</h2>
+        <div class="plan-price-row">
+          <span class="plan-currency">₱</span>
+          <span class="plan-price">200</span>
+          <span class="plan-old-price">₱250</span>
+          <span class="plan-save-tag">ALL-IN-ONE</span>
+        </div>
+        <p class="plan-desc">
+          Includes Entertainment / Profile Slot Trackers — track every profile and shared slot (if one profile is sold as shared).
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-check">✓</span><span>Everything in <strong>Sales, Inventory & Salary</strong></span></li>
+          <li><span class="feature-check">✓</span><span><span class="feature-plus">+ NEW</span>Entertainment Profile Slot Tracker (Profile 1–5+)</span></li>
+          <li><span class="feature-check">✓</span><span><span class="feature-plus">+ NEW</span>Shared Profile Slots (Slot 1/2 & 2/2 Tracking)</span></li>
+          <li><span class="feature-check">✓</span><span>Click Any Open Slot to Sell & Assign Buyer</span></li>
+          <li><span class="feature-check">✓</span><span>Subscription Products with Profile Availability</span></li>
+        </ul>
+      </div>
+      <div class="plan-actions">
+        <a href="sales-inventory-slot-salary.html" class="btn-demo">Open Full Demo (₱200) →</a>
+        <button type="button" class="btn-preview" onclick="openInlinePreview('sales-inventory-slot-salary.html', 'Sales, Inventory, Slot & Salary — ₱200')">Preview Here Below</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Inline Preview Frame -->
+  <section id="inlinePreviewSection" class="preview-section">
+    <div class="preview-frame-card">
+      <div class="preview-bar">
+        <div class="preview-title">
+          <span style="width:10px; height:10px; border-radius:50%; background:var(--primary); display:inline-block;"></span>
+          <span id="inlinePreviewTitle">Live Preview</span>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a id="inlineOpenFullLink" href="sales-tracker.html" class="quick-pill" style="padding:5px 12px;">Open Full Screen ↗</a>
+          <button type="button" class="quick-pill" style="padding:5px 12px; cursor:pointer;" onclick="closeInlinePreview()">✕ Close Preview</button>
+        </div>
+      </div>
+      <iframe id="inlinePreviewFrame" class="preview-iframe" src="about:blank"></iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Aab Khan — Sales, Inventory, Slot & Salary Tracker Demos
+  </footer>
+
+  <script>
+    (function initTheme() {
+      const saved = localStorage.getItem('aab_demo_theme') || 'dark';
+      document.documentElement.classList.toggle('dark', saved === 'dark');
+      const savedAccent = localStorage.getItem('aab_demo_accent') || 'violet';
+      setAccent(savedAccent);
+      updateIcons();
+    })();
+
+    function setAccent(accent) {
+      document.documentElement.setAttribute('data-accent', accent);
+      localStorage.setItem('aab_demo_accent', accent);
+      document.querySelectorAll('.swatch-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-swatch') === accent);
+      });
+      const frame = document.getElementById('inlinePreviewFrame');
+      if (frame && frame.contentWindow && frame.contentDocument) {
+        try {
+          frame.contentDocument.documentElement.setAttribute('data-accent', accent);
+        } catch (e) {}
+      }
+    }
+
+    function updateIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.getElementById('moonIcon').style.display = isDark ? 'block' : 'none';
+      document.getElementById('sunIcon').style.display = isDark ? 'none' : 'block';
+    }
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('aab_demo_theme', isDark ? 'dark' : 'light');
+      updateIcons();
+    });
+
+    function openInlinePreview(url, title) {
+      const sec = document.getElementById('inlinePreviewSection');
+      const frame = document.getElementById('inlinePreviewFrame');
+      document.getElementById('inlinePreviewTitle').textContent = title;
+      document.getElementById('inlineOpenFullLink').href = url;
+      frame.src = url;
+      sec.classList.add('active');
+      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function closeInlinePreview() {
+      const sec = document.getElementById('inlinePreviewSection');
+      const frame = document.getElementById('inlinePreviewFrame');
+      frame.src = 'about:blank';
+      sec.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
